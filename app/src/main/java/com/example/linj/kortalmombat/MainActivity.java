@@ -2,6 +2,7 @@ package com.example.linj.kortalmombat;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,9 +11,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-EditText1 editSpecial = (EditText) findViewById(R.id.editText);
-    editSpecial
 
+    private int special = editText;
+    private int attack = editText2;
+    private int defense = editText3;
+    private int totalPoints = special + attack + defense;
 
+    public boolean finished_char(int totalPoints){
+        if (totalPoints != 30){
+           return button.setEnabled(false);
+        }
+        else {return button.setEnabled(true);}
+
+    }
 
 }
+
