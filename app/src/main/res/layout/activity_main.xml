@@ -60,7 +60,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Allocate 30 Total Points"
+        android:text="Allocate 30 Points"
         android:id="@+id/textView2"
         android:layout_above="@+id/button"
         android:layout_alignStart="@+id/button" />
