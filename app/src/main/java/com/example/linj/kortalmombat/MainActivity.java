@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         else {return button.setEnabled(true);}
 
     }
-
+public class Stats{
+    (EditText) specialTxt = (EditText) findViewById(R.id.editText);
+}
 }
 
