@@ -1,5 +1,6 @@
 package com.example.linj.kortalmombat;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private int attack = ((EditText) findViewById(R.id.editText2);;
     private int defense = ((EditText) findViewById(R.id.editText3);;
     private Button continue_button = (Button) findViewById(R.id.button);
-    private Button = (Button) findViewById(R.id.button);
+    private Button button_click = (Button) findViewById(R.id.button);
     private int totalPoints = special + attack + defense;
 
   //  public void finished_char(int totalPoints){
@@ -32,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
    // }
 
-    .setOnClickListener(new View.OnClickListener(){
+    button_click.setOnClickListener(new View.OnClickListener(){
         public void fincharacter(int totalPoints){
         if (totalPoints != 30) {
-            continue_button.setEnabled(false);
+            startActivity(new Intent(MainActivity.this,StandingsActivity.class));
         } else {
-            continue_button.setEnabled(true);
+            startActivity(new Intent(MainActivity.this,StandingsActivity.class));
             }
         }
     }
