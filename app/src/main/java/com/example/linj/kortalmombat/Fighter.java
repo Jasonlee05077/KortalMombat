@@ -8,12 +8,14 @@ public class Fighter {
     private int defense;
     private int attack;
     private String title = "";
+    private int uniqueID;
 
-    public Fighter(int special, int defense, int attack, String title){
+    public Fighter(int special, int defense, int attack, String title, int uniqueID){
         this.special= special;
         this.attack = attack;
         this.defense = defense;
         this.title = title;
+        this.uniqueID = uniqueID;
 
     }
 
