@@ -25,22 +25,16 @@ public class MainActivity extends AppCompatActivity {
     private Button button_click = (Button) findViewById(R.id.button);
     private int totalPoints = special + attack + defense;
 
-  //  public void finished_char(int totalPoints){
-   //     if (totalPoints != 30){
-   //        continuebutton.setEnabled(false);
-   //     }
-   //     else {continuebutton.setEnabled(true);}
+    public void finished_char(int totalPoints){
+        if (totalPoints != 30){
+           System.out.println("Please use 30 points");
+        }
+        else {startActivity(new Intent(MainActivity.this,FightingActivity.class));}
 
-   // }
+    }
 
     button_click.setOnClickListener(new View.OnClickListener(){
-        public void fincharacter(int totalPoints){
-        if (totalPoints != 30) {
-            startActivity(new Intent(MainActivity.this,StandingsActivity.class));
-        } else {
-            startActivity(new Intent(MainActivity.this,StandingsActivity.class));
-            }
-        }
+        finished_char(totalPoints);
     }
 }
 
