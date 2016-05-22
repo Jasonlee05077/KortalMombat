@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button continueButton = (Button) findViewById(R.id.button);
         continueButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     int uniqueID = (int) Math.random();
                     Fighter fighter = new Fighter(special, defense, attack, name, uniqueID, password);
+                    startActivity(new Intent(MainActivity.this, MatchMaking.class));
+
                 }
             }
         });
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         Button LoginButton = (Button)findViewById(R.id.button2);
         LoginButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
 
