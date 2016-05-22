@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="WELCOME TO KORTAL MOMBAT"
+        android:text="Create Your Character"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:text="Continue..."
         android:id="@+id/button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -53,16 +53,34 @@
         android:inputType="numberSigned"
         android:ems="10"
         android:id="@+id/editText3"
+        android:text="Enter Defense Stat"
         android:layout_below="@+id/editText2"
-        android:layout_alignEnd="@+id/button"
-        android:text="Enter Defense Stat" />
+        android:layout_alignStart="@+id/editText2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Allocate 30 Points"
         android:id="@+id/textView2"
-        android:layout_above="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_below="@+id/editText5"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_below="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText5"
+        android:layout_below="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:text="Create Password" />
 
 </RelativeLayout>
