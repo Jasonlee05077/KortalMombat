@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -17,37 +17,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button continueButton = (Button) findViewById(R.id.button);
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText specialText = ((EditText) findViewById(R.id.editText));
+                String specialString = specialText.getText().toString();
+                final int special = Integer.parseInt(specialString);
+                EditText attackText = ((EditText) findViewById(R.id.editText2));
+                String attackString = attackText.getText().toString();
+                final int attack = Integer.parseInt(attackString);
+                EditText defenseText = ((EditText) findViewById(R.id.editText3));
+                String defenseString = defenseText.getText().toString();
+                final int defense = Integer.parseInt(defenseString);
+                int totalPoints = special + attack + defense;
+                EditText nameText = ((EditText) findViewById(R.id.editText4));
+                String name = nameText.getText().toString();
+                EditText passwordText = ((EditText) findViewById(R.id.editText5));
+                String password = passwordText.getText().toString();
+                if (totalPoints != 30)
+                {System.out.println("Please use 30 points");
+                } else {
+                    int uniqueID = (int) Math.random();
+                    Fighter fighter = new Fighter(special, defense, attack, name, uniqueID, password);
+                }
+            }
+        });
 
 
-        continueButton.setOnClickListener(MainActivity.this);
+        Button LoginButton = (Button)findViewById(R.id.button2);
+        LoginButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+            }
+        });
 
 
     }
 
 
-    @Override
-    public void onClick(View v) {
-        EditText specialText = ((EditText) findViewById(R.id.editText));
-        String specialString = specialText.getText().toString();
-        final int special = Integer.parseInt(specialString);
-        EditText attackText = ((EditText) findViewById(R.id.editText2));
-        String attackString = attackText.getText().toString();
-        final int attack = Integer.parseInt(attackString);
-        EditText defenseText = ((EditText) findViewById(R.id.editText3));
-        String defenseString = defenseText.getText().toString();
-        final int defense = Integer.parseInt(defenseString);
-        int totalPoints = special + attack + defense;
-        EditText nameText = ((EditText) findViewById(R.id.editText4));
-        String name = nameText.getText().toString();
-        EditText passwordText = ((EditText) findViewById(R.id.editText5));
-        String password = passwordText.getText().toString();
-        if (totalPoints != 30) {
-            System.out.println("Please use 30 points");
-        } else {
-            int uniqueID = (int) Math.random();
-            Fighter fighter = new Fighter(special, defense, attack, name, uniqueID, password);
-        }
 
-    }
 }
 

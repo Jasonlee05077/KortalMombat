@@ -32,10 +32,9 @@
         android:inputType="numberSigned"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginTop="40dp"
-        android:text="Enter Attack Stat" />
+        android:text="Enter Attack Stat"
+        android:layout_below="@+id/editText4"
+        android:layout_alignStart="@+id/editText4" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -73,7 +72,7 @@
         android:ems="10"
         android:id="@+id/editText4"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -81,6 +80,26 @@
         android:id="@+id/editText5"
         android:layout_below="@+id/editText3"
         android:layout_alignStart="@+id/editText3"
-        android:text="Create Password" />
+        android:text="Create Password"
+        android:layout_alignEnd="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Already have Character?"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/button2"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/button"
+        android:layout_alignEnd="@+id/button" />
 
 </RelativeLayout>
