@@ -15,19 +15,32 @@ public class Fighter {
     private int attack_chance;
     private int special_chance;
 
+    public int getDefense() {
+        return defense;
+    }
 
-
-    public Fighter(int special, int defense, int attack, String title, int uniqueID, String password, int hp){
-        this.special= special;
+    public Fighter(int special, int defense, int attack, String title, int uniqueID, String password) {
+        this.special = special;
         this.attack = attack;
         this.defense = defense;
         this.title = title;
         this.uniqueID = uniqueID;
         this.password = password;
-        this.hp = hp;
+    }
 
+    public int getSpecial() {
+        return special;
+    }
 
-        public int getBlock_chance() {
+    public String getTitle() {
+        return title;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getBlock_chance() {
             return block_chance;
         }
 
@@ -43,4 +56,4 @@ public class Fighter {
 
 
 
-}
+

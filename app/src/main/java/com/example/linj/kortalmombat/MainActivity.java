@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.firebase.client.Firebase;
+
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Firebase.setAndroidContext(this);
         Button continueButton = (Button) findViewById(R.id.button);
         continueButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
