@@ -11,6 +11,6 @@ public class YourFighter {
     }
 
     public static void setFighter(Fighter fighter) {
-        fighter = fighter;
+        YourFighter.fighter = fighter;
     }
 }
