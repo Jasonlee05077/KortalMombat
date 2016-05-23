@@ -1,5 +1,8 @@
 package com.example.linj.kortalmombat;
 
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+
 /**
  * Created by leej2 on 5/19/2016.
  */
@@ -61,7 +64,14 @@ public class Fighter {
     public int getSpecial_chance() {
             return special_chance;
         }
+
+    public void Punch () {
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.icon, null);
+        String uri = "@drawable/myresource";  // where myresource (without the extension) is the file
+
+
     }
+}
 
 
 
