@@ -11,13 +11,11 @@ public class Fighter {
     private String title = "";
     private int uniqueID;
     private String password;
-    private int block_chance;
-    private int attack_chance;
-    private int special_chance;
+    private int block_chance = 33;
+    private int attack_chance = 33;
+    private int special_chance = 34;
 
-    public int getDefense() {
-        return defense;
-    }
+
 
     public Fighter(int special, int defense, int attack, String title, int uniqueID, String password) {
         this.special = special;
@@ -32,6 +30,18 @@ public class Fighter {
         return special;
     }
 
+    public int getAttack() {
+        return attack;
+    }
+
+    public int getUniqueID() {
+        return uniqueID;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -44,14 +54,13 @@ public class Fighter {
             return block_chance;
         }
 
-        public int getAttack_chance() {
+    public int getAttack_chance() {
             return attack_chance;
         }
 
-        public int getSpecial_chance() {
+    public int getSpecial_chance() {
             return special_chance;
         }
-
     }
 
 
