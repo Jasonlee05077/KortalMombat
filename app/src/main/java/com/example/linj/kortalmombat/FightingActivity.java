@@ -6,14 +6,15 @@ import android.widget.Button;
 
 public class FightingActivity extends AppCompatActivity {
 
-    private Button button2;
-    button2 = (Button) findViewById(R.id.Punch) ;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fighting);
 
+
+        public void set
     }
+
+
 
 }
