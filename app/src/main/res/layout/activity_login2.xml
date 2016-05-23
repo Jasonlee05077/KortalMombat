@@ -7,30 +7,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.linj.kortalmombat.FightingActivity">
+    tools:context="com.example.linj.kortalmombat.LoginActivity">
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Punch"
-        android:id="@+id/button2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/editText6"
+        android:text="Please Enter Your Title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kick"
-        android:id="@+id/button3"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/editText7"
+        android:text="Please Enter Your Password"
+        android:layout_below="@+id/editText6"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Block"
-        android:id="@+id/button4"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
+        android:text="Access Fighter"
+        android:id="@+id/button5"
+        android:layout_below="@+id/editText7"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

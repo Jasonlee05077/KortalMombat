@@ -7,16 +7,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity{
+import com.firebase.client.Firebase;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Firebase.setAndroidContext(this);
         Button continueButton = (Button) findViewById(R.id.button);
-        Button.OnClickListener(new View.OnClickListener){
-            public void onClick(View v){
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 EditText specialText = ((EditText) findViewById(R.id.editText));
                 String specialString = specialText.getText().toString();
                 final int special = Integer.parseInt(specialString);
@@ -27,15 +32,34 @@ public class MainActivity extends AppCompatActivity{
                 String defenseString = defenseText.getText().toString();
                 final int defense = Integer.parseInt(defenseString);
                 int totalPoints = special + attack + defense;
-                if (totalPoints != 30){
-                    System.out.println("Please use 30 points");
-                }
-                else {startActivity(new Intent(MainActivity.this,FightingActivity.class));}
+                EditText nameText = ((EditText) findViewById(R.id.editText4));
+                String name = nameText.getText().toString();
+                EditText passwordText = ((EditText) findViewById(R.id.editText5));
+                String password = passwordText.getText().toString();
+                if (totalPoints != 30)
+                {System.out.println("Please use 30 points");
+                } else {
+                    int uniqueID = (int) Math.random();
+                    Fighter fighter = new Fighter(special, defense, attack, name, uniqueID, password);
+                    Cloud.fighterUpload(fighter);
+                    YourFighter.setFighter(fighter);
+                    startActivity(new Intent(MainActivity.this, MatchMaking.class));
 
                 }
             }
+        });
+
+
+        Button LoginButton = (Button)findViewById(R.id.button2);
+        LoginButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
+
 
     }
+
 
 
 }
