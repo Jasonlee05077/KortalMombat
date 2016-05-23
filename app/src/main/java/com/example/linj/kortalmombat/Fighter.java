@@ -61,7 +61,29 @@ public class Fighter {
     public int getSpecial_chance() {
             return special_chance;
         }
+    public void gainAttackByOne(){
+        attack++;
     }
+    public void gainDefenseByOne(){
+        attack++;
+    }
+    public void gainSpecialByOne(){
+        attack++;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public void setSpecial(int special) {
+        this.special = special;
+    }
+}
+
 
 
 
