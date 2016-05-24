@@ -42,6 +42,31 @@ public class MatchMaking extends AppCompatActivity {
 
             }
         });
+        Button specificFighter = (Button)findViewById(R.id.button7);
+        specificFighter.setOnClickListener(new View.OnClickListener()
+        {
+
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MatchMaking.this, SpecificFighterActivity.class));
+
+
+            }
+        });
+
+        Button findRandomFighter = (Button)findViewById(R.id.button3);
+
+        findRandomFighter.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View v) {
+                for()
+            }
+        });
+
+
 
 
     }
