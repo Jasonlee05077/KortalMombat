@@ -48,8 +48,11 @@ public class Cloud {
     }
     public static Fighter getRandom(){
         Random rand = new Random();
-        int random = rand.nextInt(FighterNamesPassword.namesandpasswords.size()-1);
-        getFighter()
+        int random = rand.nextInt(FighterNamesPassword.namesAndPasswords.size()-1);
+        String randomNamePassword = FighterNamesPassword.namesAndPasswords.get(random);
+        Fighter fighter = getFighter(randomNamePassword.substring(0, randomNamePassword.indexOf(" ")), randomNamePassword.substring(randomNamePassword.indexOf(" ") + 1)
+        );
+        return fighter;
 
     }
 }

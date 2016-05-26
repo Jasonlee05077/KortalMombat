@@ -62,7 +62,10 @@ public class MatchMaking extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                for()
+                ComputerFighter.setFighter(Cloud.getRandom());
+                startActivity(new Intent(MatchMaking.this, FightingActivity.class));
+
+
             }
         });
 
