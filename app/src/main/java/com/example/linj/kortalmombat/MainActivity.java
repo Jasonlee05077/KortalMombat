@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     Fighter fighter = new Fighter(special, defense, attack, name, uniqueID, password);
                     Cloud.fighterUpload(fighter);
                     YourFighter.setFighter(fighter);
+                    FighterNamesPassword.namesandpasswords.add(name+" "+password);
                     startActivity(new Intent(MainActivity.this, MatchMaking.class));
 
                 }

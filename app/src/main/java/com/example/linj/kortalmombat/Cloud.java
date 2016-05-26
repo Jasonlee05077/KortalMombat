@@ -5,6 +5,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import java.util.Random;
+
 /**
  * Created by jason on 5/21/2016.
  */
@@ -43,5 +45,11 @@ public class Cloud {
         });
         Fighter fighter = new Fighter(special ,defense, attack , title, uniqueID, password);
         return  fighter;
+    }
+    public static Fighter getRandom(){
+        Random rand = new Random();
+        int random = rand.nextInt(FighterNamesPassword.namesandpasswords.size()-1);
+        getFighter()
+
     }
 }
