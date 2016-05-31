@@ -14,5 +14,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/myLayout"></RelativeLayout>
+        android:id="@+id/myLayout">
+
+    </RelativeLayout>
 </RelativeLayout>
