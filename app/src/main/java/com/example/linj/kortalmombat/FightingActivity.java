@@ -30,7 +30,7 @@ public class FightingActivity extends AppCompatActivity {
                 switch (action & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_POINTER_DOWN:
                         TwoFingersTapped = true;
-                        kick();
+                        kick(YourFighter.getFighter(),ComputerFighter.getFighter());
                     case MotionEvent.ACTION_BUTTON_PRESS:
                         punch();
 
@@ -39,22 +39,22 @@ public class FightingActivity extends AppCompatActivity {
             }
         });
     }
-    public void kick(Fighter attack, Fighter defense){
-        int block = defense.getDefense()/2;
-        if (attack.getSpecial() + attack.getAttack() >= 21) {
+    public void kick(Fighter attacker, Fighter defenser){
+        int block = defenser.getDefense()/2;
+        if (attacker.getSpecial() + attacker.getAttack() >= 21) {
             int place = random.nextInt(100);
             if (place > 10) {
-                defense.setHp(defense.getHp() - (attack.getSpecial()+attack.getAttack()- block ));
+                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()- block ));
             }
-        } else if (attack.getSpecial() + attack.getAttack() >= 10) {
+        } else if (attacker.getSpecial() + attacker.getAttack() >= 10) {
             int place = random.nextInt(100);
             if (place > 25) {
-                defense.setHp(ComputerFighter.getFighter().getHp() - (attack.getSpecial()+attack.getAttack()- block ));
+                defenser.setHp(ComputerFighter.getFighter().getHp() - (attacker.getSpecial()+attacker.getAttack()- block ));
             }
-        } else if (attack.getSpecial() + attack.getAttack() < 10) {
+        } else if (attacker.getSpecial() + attacker.getAttack() < 10) {
             int place = random.nextInt(100);
             if (place > 50) {
-                defense.setHp(defense.getHp() - (attack.getSpecial()+attack.getAttack()- block ));
+                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()- block ));
             }
         }
     }

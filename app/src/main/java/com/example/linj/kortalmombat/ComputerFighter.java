@@ -13,4 +13,7 @@ public class ComputerFighter {
     public static void setFighter(Fighter fighter) {
         ComputerFighter.fighter = fighter;
     }
+
+
+
 }
