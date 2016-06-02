@@ -23,7 +23,7 @@ public class Cloud {
         fighterStorage.child("special").setValue(fighter.getSpecial());
         fighterStorage.child("attack").setValue(fighter.getAttack());
         fighterStorage.child("defense").setValue(fighter.getDefense());
-        fighterStorage.child("uniqueID").setValue(fighter.getUniqueID());
+
 
     }
     public static Fighter getFighter(final String title, final String password){
@@ -34,7 +34,7 @@ public class Cloud {
                special = (int) snapshot.child(title).child(password).child("special").getValue();
                 attack = (int) snapshot.child(title).child(password).child("attack").getValue();
                 defense = (int) snapshot.child(title).child(password).child("defense").getValue();
-               uniqueID = (int) snapshot.child(title).child(password).child("uniqueID").getValue();
+
 
             }
 
@@ -43,7 +43,7 @@ public class Cloud {
 
             }
         });
-        Fighter fighter = new Fighter(special ,defense, attack , title, uniqueID, password);
+        Fighter fighter = new Fighter(special ,defense, attack , title,  password);
         return  fighter;
     }
     public static Fighter getRandom(){

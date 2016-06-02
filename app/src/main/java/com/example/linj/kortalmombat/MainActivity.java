@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         Button continueButton = (Button) findViewById(R.id.button);
         continueButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                EditText specialText = ((EditText) findViewById(R.id.editText));
+                EditText specialText = ((EditText) findViewById(R.id.editText2));
                 String specialString = specialText.getText().toString();
                 final int special = Integer.parseInt(specialString);
-                EditText attackText = ((EditText) findViewById(R.id.editText2));
+                EditText attackText = ((EditText) findViewById(R.id.editText));
                 String attackString = attackText.getText().toString();
                 final int attack = Integer.parseInt(attackString);
                 EditText defenseText = ((EditText) findViewById(R.id.editText3));
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 {System.out.println("Please use 30 points");
                 } else {
                     int uniqueID = (int) Math.random();
-                    Fighter fighter = new Fighter(special, defense, attack, name, uniqueID, password);
+                    Fighter fighter = new Fighter(special, defense, attack, name, password);
                     Cloud.fighterUpload(fighter);
                     YourFighter.setFighter(fighter);
                     FighterNamesPassword.namesAndPasswords.add(name+" "+password);
