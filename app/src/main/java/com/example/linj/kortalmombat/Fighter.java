@@ -13,7 +13,7 @@ public class Fighter {
     private String password;
     private int block_chance = 33;
     private int attack_chance = 33;
-    private int special_chance = 34;
+    private int special_chance = 33;
 
 
 
