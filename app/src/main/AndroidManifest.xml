@@ -26,7 +26,7 @@
         <activity android:name=".MatchMaking" />
         <activity android:name=".SpecificFighterActivity" />
         <activity android:name=".VictoryActivity" />
-        <activity android:name=".DefeatActivity"></activity>
+        <activity android:name=".DefeatActivity" />
     </application>
 
 </manifest>

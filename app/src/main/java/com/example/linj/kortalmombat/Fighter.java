@@ -63,10 +63,10 @@ public class Fighter {
         attack++;
     }
     public void gainDefenseByOne(){
-        attack++;
+        defense++;
     }
     public void gainSpecialByOne(){
-        attack++;
+        special++;
     }
 
     public void setAttack(int attack) {
