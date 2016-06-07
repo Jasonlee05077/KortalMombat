@@ -21,8 +21,8 @@ public class LoginActivity extends AppCompatActivity {
         Button AccessButton = (Button)findViewById(R.id.button5);
         AccessButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Fighter fighter = Cloud.getFighter(title, password);
-                YourFighter.setFighter(fighter);
+
+                YourFighter.setFighter( Cloud.getFighter(title, password));
                 startActivity(new Intent(LoginActivity.this, MatchMaking.class));
             }
         });

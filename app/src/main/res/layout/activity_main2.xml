@@ -7,54 +7,65 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.linj.kortalmombat.MatchMaking">
+    tools:context="com.example.linj.kortalmombat.Main2Activity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Match Making"
-        android:id="@+id/textView4"
+        android:text="YourFighter"
+        android:id="@+id/textView8"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Against Generated Fighter"
-        android:id="@+id/button6"
-        android:layout_below="@+id/textView4"
+        android:id="@+id/editText8"
+        android:layout_below="@+id/textView8"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Against Another User&apos;s Fighter"
-        android:id="@+id/button7"
-        android:layout_below="@+id/button6"
+        android:id="@+id/editText9"
+        android:layout_below="@+id/editText8"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Against  A Random User"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button7"
+        android:id="@+id/editText10"
+        android:layout_below="@+id/editText9"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Customize Your Defense AI"
-        android:id="@+id/button4"
-        android:layout_alignParentBottom="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Computer"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/editText10"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test"
-        android:id="@+id/button8"
-        android:layout_below="@+id/button3"
+        android:id="@+id/editText11"
+        android:layout_below="@+id/textView9"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText12"
+        android:layout_below="@+id/editText11"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText13"
+        android:layout_below="@+id/editText12"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

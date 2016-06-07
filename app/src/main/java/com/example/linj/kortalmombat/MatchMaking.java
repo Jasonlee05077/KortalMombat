@@ -68,6 +68,19 @@ public class MatchMaking extends AppCompatActivity {
 
             }
         });
+        Button test = (Button)findViewById(R.id.button8);
+
+        test.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MatchMaking.this, Main2Activity.class));
+
+
+            }
+        });
 
 
 

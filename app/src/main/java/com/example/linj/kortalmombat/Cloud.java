@@ -50,7 +50,7 @@ public class Cloud {
         Random rand = new Random();
         int random = rand.nextInt(FighterNamesPassword.namesAndPasswords.size()-1);
         String randomNamePassword = FighterNamesPassword.namesAndPasswords.get(random);
-        Fighter fighter = getFighter(randomNamePassword.substring(0, randomNamePassword.indexOf(" ")), randomNamePassword.substring(randomNamePassword.indexOf(" ") + 1)
+        Fighter fighter = getFighter(randomNamePassword.substring(0, randomNamePassword.indexOf(" ")), randomNamePassword.substring(randomNamePassword.indexOf(" ")+1)
         );
         return fighter;
 
