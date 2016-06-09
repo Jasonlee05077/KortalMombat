@@ -24,7 +24,7 @@ public class FightingActivity extends AppCompatActivity {
     private static int aiHP = ComputerFighter.defense*10 +500;
     private static int userAttack;
     private static int userDefense;
-    private static int userSpecial;
+
     private static int compAttack;
     private static int compDefense;
     private static int compSpecial;
