@@ -42,12 +42,10 @@ public class MainActivity extends AppCompatActivity {
                     int uniqueID = (int) Math.random();
                     Fighter fighter = new Fighter(special, defense, attack, name, password);
                     Cloud.fighterUpload(fighter);
-                    YourFighter.assignAtt(attack);
-                    YourFighter.assignDef(defense);
-                    YourFighter.assignSpec(special);
-                    YourFighter.assignTitle(name);
-                    YourFighter.assignPassword(password);
-                    FighterNamesPassword.namesAndPasswords.add(name+" "+password);
+
+                    YourFighter.title = name;
+                    YourFighter.password = password;
+
                     startActivity(new Intent(MainActivity.this, MatchMaking.class));
 
                 }

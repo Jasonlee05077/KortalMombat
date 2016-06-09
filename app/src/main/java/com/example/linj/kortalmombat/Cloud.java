@@ -12,10 +12,10 @@ import java.util.Random;
  */
 public class Cloud {
     private static Firebase ref = new Firebase("https://popping-inferno-491.firebaseio.com/");
-    private static int special;
-    private static int attack;
-    private static int defense;
-    private static int uniqueID;
+    public static int attack;
+    public static int special;
+    public static int defense;
+    public static int uniqueID;
 
 
     public static void fighterUpload(Fighter fighter){
@@ -26,15 +26,16 @@ public class Cloud {
 
 
     }
-    public static Fighter getFighter(final String title, final String password){
+    public static void getYourStats(final String title, final String password){
+
         ref.addValueEventListener(new ValueEventListener() {
+
 
             public void onDataChange(DataSnapshot snapshot) {
 
-                special = snapshot.child(title).child(password).child("special").getValue(Integer.TYPE);
-                attack = snapshot.child(title).child(password).child("attack").getValue(Integer.TYPE);
-                defense = snapshot.child(title).child(password).child("defense").getValue(Integer.TYPE);
-
+                YourFighter.special = (snapshot.child(title).child(password).child("special").getValue(Integer.TYPE).intValue());
+                YourFighter.defense=(snapshot.child(title).child(password).child("defense").getValue(Integer.TYPE).intValue());
+                YourFighter.attack = (snapshot.child(title).child(password).child("attack").getValue(Integer.TYPE).intValue());
             }
 
 
@@ -42,16 +43,10 @@ public class Cloud {
 
             }
         });
-        Fighter fighter = new Fighter(special ,defense, attack , title,  password);
-        return  fighter;
+
     }
-    public static Fighter getRandom(){
-        Random rand = new Random();
-        int random = rand.nextInt(FighterNamesPassword.namesAndPasswords.size());
-        String randomNamePassword = FighterNamesPassword.namesAndPasswords.get(random);
-        Fighter fighter = getFighter(randomNamePassword.substring(0, randomNamePassword.indexOf(" ")), randomNamePassword.substring(randomNamePassword.indexOf(" ")+1)
-        );
-        return fighter;
+    public static void getRandom(){
+
 
     }
 }

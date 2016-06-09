@@ -12,32 +12,14 @@ public class MatchMaking extends AppCompatActivity {
 
 
     private Random rand = new Random();
-    private static int totalStat = YourFighter.getFighter().getAttack()+YourFighter.getFighter().getSpecial()+YourFighter.getFighter().getDefense();
+    private static int totalStat = 0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_making);
         Button generateFighter = (Button)findViewById(R.id.button6);
-
         generateFighter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                int computerTotalStats = 0;
-                ComputerFighter.assignAtt(0);
-                ComputerFighter.assignDef(0);
-                ComputerFighter.assignSpec(0);
-                for(int i = 0 ; i < totalStat ; i++){
-                    int randomNumber = rand.nextInt(2);
-                    if (randomNumber == 0){
-                        ComputerFighter.attackPlusOne();
-                    }
-                    else if (randomNumber == 1){
-                        ComputerFighter.defensePlusOne();
-                    }
-                    else if (randomNumber == 2){
-                        ComputerFighter.specialPlusOne();
-                    }
 
-
-                }
                 startActivity(new Intent(MatchMaking.this, FightingActivity.class));
 
             }
@@ -62,12 +44,8 @@ public class MatchMaking extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Fighter rand = Cloud.getRandom();
-                ComputerFighter.assignAtt(rand.getAttack());
-                ComputerFighter.assignDef(rand.getDefense());
-                ComputerFighter.assignSpec(rand.getSpecial());
-                ComputerFighter.assignTitle(rand.getTitle());
-                ComputerFighter.assignPassword(rand.getPassword());
+
+
                 startActivity(new Intent(MatchMaking.this, FightingActivity.class));
 
 
@@ -80,6 +58,8 @@ public class MatchMaking extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+
 
                 startActivity(new Intent(MatchMaking.this, Main2Activity.class));
 

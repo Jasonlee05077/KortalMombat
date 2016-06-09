@@ -18,7 +18,8 @@ import java.util.Timer;
 public class FightingActivity extends AppCompatActivity {
     private boolean TwoFingersTapped;
     private boolean hitpercent;
-
+    private static Fighter yourFighter = new Fighter(YourFighter.special,YourFighter.defense,YourFighter.attack, YourFighter.title,YourFighter.password);
+    private static Fighter compFighter = new Fighter(ComputerFighter.special, ComputerFighter.defense,ComputerFighter.attack,ComputerFighter.title,ComputerFighter.password);
 
     Random random = new Random();
 
@@ -29,24 +30,24 @@ public class FightingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fighting);
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.myLayout);
-        myLayout.setOnTouchListener(new View.OnTouchListener() {
+        /*myLayout.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int action = motionEvent.getAction();
                 switch (action & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_POINTER_DOWN:
                         TwoFingersTapped = true;
-                        kick(YourFighter.getFighter(),ComputerFighter.getFighter());
+                        kick(yourFighter,compFighter);
                     case MotionEvent.ACTION_BUTTON_PRESS:
-                        punch(YourFighter.getFighter(), ComputerFighter.getFighter());
+                        punch(yourFighter, compFighter);
 
                 }
                 return true;
             }
-        });
+        });*/
 
-    while(YourFighter.getFighter().getHp()>0|| ComputerFighter.getFighter().getHp()>0){
+    while(yourFighter.getHp()>0|| compFighter.getHp()>0){
 
-        kick(ComputerFighter.getFighter(), YourFighter.getFighter());
+        kick(compFighter, yourFighter);
         try {
             Thread.sleep(500);                 //1000 milliseconds is one second.
         } catch(InterruptedException ex) {
@@ -54,10 +55,10 @@ public class FightingActivity extends AppCompatActivity {
         }
 
     }
-        if(YourFighter.getFighter().getHp() <= 0){
+        if(yourFighter.getHp() <= 0){
             startActivity(new Intent(FightingActivity.this, VictoryActivity.class));
         }
-        else if(ComputerFighter.getFighter().getHp() <= 0){
+        else if(compFighter.getHp() <= 0){
             startActivity(new Intent(FightingActivity.this, DefeatActivity.class));
 
         }

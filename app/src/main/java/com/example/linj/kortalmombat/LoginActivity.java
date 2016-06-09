@@ -24,12 +24,8 @@ public class LoginActivity extends AppCompatActivity {
         AccessButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 
-                Fighter fighter = Cloud.getFighter(title, password);
-                YourFighter.assignAtt( fighter.getAttack());
-                YourFighter.assignDef( fighter.getDefense());
-                YourFighter.assignSpec( fighter.getSpecial());
-                YourFighter.assignTitle( fighter.getTitle());
-                YourFighter.assignPassword(fighter.getPassword());
+                Cloud.getYourStats(title, password);
+
                 startActivity(new Intent(LoginActivity.this, MatchMaking.class));
             }
         });
