@@ -43,8 +43,7 @@ public class FightingActivity extends AppCompatActivity {
         aiHP = ComputerFighter.defense*10 +500;
 
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.myLayout);
-        ImageView whiteStance = (ImageView) findViewById(R.id.imageView);
-        ImageView redStance = (ImageView)findViewById(R.id.imageView2);
+
         myLayout.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
