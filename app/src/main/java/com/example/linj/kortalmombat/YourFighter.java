@@ -13,7 +13,7 @@ public class YourFighter {
     public static void setFighter(Fighter fighter) {
         YourFighter.fighter = fighter;
     }
-}
+
     public static void assignAtt(int value){
         fighter.setAttack(value);
     }
