@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ public class FightingActivity extends AppCompatActivity {
     private static Fighter yourFighter = new Fighter(YourFighter.special,YourFighter.defense,YourFighter.attack, YourFighter.title,YourFighter.password);
     private static Fighter compFighter = new Fighter(ComputerFighter.special, ComputerFighter.defense,ComputerFighter.attack,ComputerFighter.title,ComputerFighter.password);
 
-    Random random = new Random();
+    private static Random  random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,64 +30,76 @@ public class FightingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fighting);
 
+        EditText YourHP = ((EditText) findViewById(R.id.editText14));
+        EditText CompHP = ((EditText) findViewById(R.id.editText15));
+
+        int compHP = compFighter.getHp();
+        String compHP2 =""+compHP;
+        CompHP.setText(compHP2);
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.myLayout);
-        /*myLayout.setOnTouchListener(new View.OnTouchListener() {
+        myLayout.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
                 int action = motionEvent.getAction();
                 switch (action & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_POINTER_DOWN:
                         TwoFingersTapped = true;
                         kick(yourFighter,compFighter);
+
+
                     case MotionEvent.ACTION_BUTTON_PRESS:
                         punch(yourFighter, compFighter);
 
                 }
                 return true;
             }
-        });*/
+        });
 
-    while(yourFighter.getHp()>0|| compFighter.getHp()>0){
 
-        kick(compFighter, yourFighter);
-        try {
-            Thread.sleep(500);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-
-    }
-        if(yourFighter.getHp() <= 0){
+        if (yourFighter.getHp() <= 0) {
             startActivity(new Intent(FightingActivity.this, VictoryActivity.class));
-        }
-        else if(compFighter.getHp() <= 0){
+        } else if (compFighter.getHp() <= 0) {
             startActivity(new Intent(FightingActivity.this, DefeatActivity.class));
 
         }
 
 
 
-
     }
-    public void kick(Fighter attacker, Fighter defenser){
+   /*protected static void Fight() {
+        while (yourFighter.getHp() > 0 || compFighter.getHp() > 0) {
+
+            kick(compFighter, yourFighter);
+            /*try {
+                Thread.sleep(500);                 //1000 milliseconds is one second.
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+
+        }
+
+    }*/
+    public static void kick(Fighter attacker, Fighter defenser){
         int block = defenser.getDefense()/2;
         if (attacker.getSpecial() + attacker.getAttack() >= 21) {
             int place = random.nextInt(100);
             if (place > 10) {
-                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()- block ));
+                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()  ));
             }
         } else if (attacker.getSpecial() + attacker.getAttack() >= 10) {
             int place = random.nextInt(100);
             if (place > 25) {
-                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()- block ));
+                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()  ));
             }
         } else if (attacker.getSpecial() + attacker.getAttack() < 10) {
             int place = random.nextInt(100);
             if (place > 50) {
-                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()- block ));
+                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()  ));
             }
         }
     }
-    public void punch(Fighter attacker, Fighter defender) {
+    public static void punch(Fighter attacker, Fighter defender) {
         if (attacker.getAttack() >= 20) {
             int place = random.nextInt(100);
             if (place > 10) {

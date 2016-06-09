@@ -16,13 +16,18 @@
         android:layout_alignParentBottom="true"
         android:id="@+id/myLayout">
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="TEST"
-            android:id="@+id/textView7"
+            android:id="@+id/editText14"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText15"
+            android:layout_alignBottom="@+id/editText14"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 </RelativeLayout>

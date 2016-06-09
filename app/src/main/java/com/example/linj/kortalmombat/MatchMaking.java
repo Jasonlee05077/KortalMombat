@@ -19,7 +19,24 @@ public class MatchMaking extends AppCompatActivity {
         Button generateFighter = (Button)findViewById(R.id.button6);
         generateFighter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
+                int special =0;
+                int attack =0;
+                int defense =0;
+                for (int i =0; i<30 ;i++){
+                    int k = rand.nextInt(2);
+                    if (k==0){
+                        special++;
+                    }
+                    else if(k==1){
+                        attack++;
+                    }
+                    else if (k==2){
+                        defense++;
+                    }
+                }
+                ComputerFighter.special=special;
+                ComputerFighter.defense=defense;
+                ComputerFighter.attack=attack;
                 startActivity(new Intent(MatchMaking.this, FightingActivity.class));
 
             }
