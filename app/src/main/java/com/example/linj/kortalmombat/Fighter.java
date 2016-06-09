@@ -6,7 +6,7 @@ package com.example.linj.kortalmombat;
 public class Fighter {
     private int special;
     private int defense;
-    private int hp = defense *30;
+    private int hp = 500+ defense *30;
     private int attack;
     private String title = "";
 
