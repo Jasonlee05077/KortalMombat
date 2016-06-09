@@ -25,6 +25,13 @@ public class Fighter {
 
         this.password = password;
     }
+    public Fighter(int special, int defense, int attack) {
+        this.special = special;
+        this.attack = attack;
+        this.defense = defense;
+
+    }
+
 
     public int getSpecial() {
         return special;

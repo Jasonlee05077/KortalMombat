@@ -31,9 +31,11 @@ public class Cloud {
 
             public void onDataChange(DataSnapshot snapshot) {
 
-               special = (int) snapshot.child(title).child(password).child("special").getValue();
-                attack = (int) snapshot.child(title).child(password).child("attack").getValue();
-                defense = (int) snapshot.child(title).child(password).child("defense").getValue();
+                Fighter pulledFighter = snapshot.child(title).child(password).getValue(Fighter.class);
+
+                int special = pulledFighter.getSpecial();
+                int attack = pulledFighter.getAttack();
+                int defense = pulledFighter.getDefense();
 
 
             }
