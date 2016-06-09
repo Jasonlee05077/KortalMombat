@@ -19,8 +19,9 @@ import java.util.Timer;
 public class FightingActivity extends AppCompatActivity {
     private boolean TwoFingersTapped;
     private boolean hitpercent;
-    private static Fighter yourFighter = new Fighter(YourFighter.special,YourFighter.defense,YourFighter.attack, YourFighter.title,YourFighter.password);
-    private static Fighter compFighter = new Fighter(ComputerFighter.special, ComputerFighter.defense,ComputerFighter.attack,ComputerFighter.title,ComputerFighter.password);
+    private static int userHP = YourFighter.defense*10 + 500;
+    private static int aiHP = ComputerFighter.defense*10 +500;
+    private static boolean compBlock = false;
 
     private static Random  random = new Random();
 
@@ -29,27 +30,34 @@ public class FightingActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fighting);
+        TextView YourHP = ((TextView) findViewById(R.id.textView7));
+        TextView CompHP = ((TextView) findViewById(R.id.textView10));
 
-        EditText YourHP = ((EditText) findViewById(R.id.editText14));
-        EditText CompHP = ((EditText) findViewById(R.id.editText15));
 
-        int compHP = compFighter.getHp();
-        String compHP2 =""+compHP;
-        CompHP.setText(compHP2);
+
         RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.myLayout);
         myLayout.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
+                TextView YourHP = ((TextView) findViewById(R.id.textView7));
+                TextView CompHP = ((TextView) findViewById(R.id.textView10));
 
                 int action = motionEvent.getAction();
                 switch (action & MotionEvent.ACTION_MASK) {
                     case MotionEvent.ACTION_POINTER_DOWN:
                         TwoFingersTapped = true;
-                        kick(yourFighter,compFighter);
+                        userKick();
+                        String yourHP = ""+userHP;
+                        YourHP.setText(yourHP);
+                        String compHP =""+aiHP;
+                        CompHP.setText(aiHP);
 
 
-                    case MotionEvent.ACTION_BUTTON_PRESS:
-                        punch(yourFighter, compFighter);
+                        TwoFingersTapped = false;
+                        userPunch();
+                        yourHP = ""+userHP;
+                        YourHP.setText(yourHP);
+                        compHP =""+aiHP;
+                        CompHP.setText(aiHP);
 
                 }
                 return true;
@@ -57,9 +65,9 @@ public class FightingActivity extends AppCompatActivity {
         });
 
 
-        if (yourFighter.getHp() <= 0) {
+        if (aiHP <= 0) {
             startActivity(new Intent(FightingActivity.this, VictoryActivity.class));
-        } else if (compFighter.getHp() <= 0) {
+        } else if (userHP <= 0) {
             startActivity(new Intent(FightingActivity.this, DefeatActivity.class));
 
         }
@@ -67,55 +75,53 @@ public class FightingActivity extends AppCompatActivity {
 
 
     }
-   /*protected static void Fight() {
-        while (yourFighter.getHp() > 0 || compFighter.getHp() > 0) {
 
-            kick(compFighter, yourFighter);
-            /*try {
-                Thread.sleep(500);                 //1000 milliseconds is one second.
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-
+    public static void userKick(){
+        int blockDamage = 0;
+        if (compBlock == true){
+            blockDamage = ComputerFighter.defense;
         }
 
-    }*/
-    public static void kick(Fighter attacker, Fighter defenser, EditText text){
-        int block = defenser.getDefense()/2;
-        if (attacker.getSpecial() + attacker.getAttack() >= 21) {
+
+        if (YourFighter.attack + YourFighter.special >= 40) {
             int place = random.nextInt(100);
             if (place > 10) {
-                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()  ));
+                aiHP = aiHP - (YourFighter.attack + YourFighter.special - blockDamage );
             }
-        } else if (attacker.getSpecial() + attacker.getAttack() >= 10) {
+        } else if (YourFighter.attack + YourFighter.special >= 20) {
             int place = random.nextInt(100);
             if (place > 25) {
-                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()  ));
+                aiHP = aiHP - (YourFighter.attack + YourFighter.special - blockDamage );
             }
-        } else if (attacker.getSpecial() + attacker.getAttack() < 10) {
+        } else if (YourFighter.attack + YourFighter.special < 20) {
             int place = random.nextInt(100);
             if (place > 50) {
-                defenser.setHp(defenser.getHp() - (attacker.getSpecial()+attacker.getAttack()  ));
+                aiHP = aiHP - (YourFighter.attack + YourFighter.special - blockDamage );
             }
         }
     }
-    public static void punch(Fighter attacker, Fighter defender) {
-        if (attacker.getAttack() >= 20) {
+    public static void userPunch() {
+        if (YourFighter.attack >= 20) {
             int place = random.nextInt(100);
             if (place > 10) {
-                defender.setHp(defender.getHp()- attacker.getAttack());
+                aiHP=aiHP-YourFighter.attack ;
             }
-        } else if (attacker.getAttack() >= 10) {
+        } else if ( YourFighter.attack>= 10) {
             int place = random.nextInt(100);
             if (place > 25) {
-                defender.setHp(defender.getHp()- attacker.getAttack());
+                aiHP=aiHP-YourFighter.attack ;
             }
-        } else if (attacker.getAttack() < 10) {
+        } else if (YourFighter.attack< 10) {
             int place = random.nextInt(100);
             if (place > 50) {
-                defender.setHp(defender.getHp() - attacker.getAttack());
+                aiHP=aiHP-YourFighter.attack;
             }
         }
+    }
+    public static void computerBlock(){
+
+        compBlock = !compBlock;
+
     }
 }
 
