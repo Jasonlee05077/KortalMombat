@@ -51,6 +51,8 @@ public class FightingActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_BUTTON_PRESS:
                         punch(yourFighter, compFighter);
 
+                    case MotionEvent.ACTION_SCROLL:
+                        block(yourFighter, compFighter);
                 }
                 return true;
             }
@@ -80,7 +82,7 @@ public class FightingActivity extends AppCompatActivity {
         }
 
     }*/
-    public static void kick(Fighter attacker, Fighter defenser, EditText text){
+    public static void kick(Fighter attacker, Fighter defenser){
         int block = defenser.getDefense()/2;
         if (attacker.getSpecial() + attacker.getAttack() >= 21) {
             int place = random.nextInt(100);
@@ -114,6 +116,26 @@ public class FightingActivity extends AppCompatActivity {
             int place = random.nextInt(100);
             if (place > 50) {
                 defender.setHp(defender.getHp() - attacker.getAttack());
+            }
+        }
+    }
+    public static void block(Fighter attacker, Fighter defender) {
+        if (defender.getDefense() >= 20) {
+            int place = random.nextInt(100);
+            if (place < 10) {
+                defender.setHp(defender.getHp()- attacker.getAttack());
+            }
+        }
+       else if (defender.getDefense() >= 15) {
+            int place = random.nextInt(100);
+            if (place < 20) {
+                defender.setHp(defender.getHp()- attacker.getAttack());
+            }
+        }
+       else if (defender.getDefense() >= 10) {
+            int place= random.nextInt(100);
+            if (place < 35) {
+                defender.setHp(defender.getHp()- attacker.getAttack());
             }
         }
     }
