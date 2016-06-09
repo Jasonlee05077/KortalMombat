@@ -21,9 +21,9 @@ public class MatchMaking extends AppCompatActivity {
         generateFighter.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 int computerTotalStats = 0;
-                ComputerFighter.getFighter().setAttack(0);
-                ComputerFighter.getFighter().setDefense(0);
-                ComputerFighter.getFighter().setSpecial(0);
+                ComputerFighter.assignAtt(0);
+                ComputerFighter.assignDef(0);
+                ComputerFighter.assignSpec(0);
                 for(int i = 0 ; i < totalStat ; i++){
                     int randomNumber = rand.nextInt(2);
                     if (randomNumber == 0){
