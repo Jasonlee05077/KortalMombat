@@ -80,7 +80,7 @@ public class FightingActivity extends AppCompatActivity {
         }
 
     }*/
-    public static void kick(Fighter attacker, Fighter defenser){
+    public static void kick(Fighter attacker, Fighter defenser, EditText text){
         int block = defenser.getDefense()/2;
         if (attacker.getSpecial() + attacker.getAttack() >= 21) {
             int place = random.nextInt(100);
