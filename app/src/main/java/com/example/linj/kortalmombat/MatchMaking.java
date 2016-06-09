@@ -27,13 +27,13 @@ public class MatchMaking extends AppCompatActivity {
                 for(int i = 0 ; i < totalStat ; i++){
                     int randomNumber = rand.nextInt(2);
                     if (randomNumber == 0){
-                        ComputerFighter.getFighter().gainAttackByOne();
+                        ComputerFighter.assignAtt(ComputerFighter.getFighter().getAttack()+1);
                     }
                     else if (randomNumber == 1){
-                        ComputerFighter.getFighter().gainDefenseByOne();
+                        ComputerFighter.assignDef(ComputerFighter.getFighter().getSpecial()+1);
                     }
                     else if (randomNumber == 2){
-                        ComputerFighter.getFighter().gainSpecialByOne();
+                        ComputerFighter.assignSpec(ComputerFighter.getFighter().getDefense()+1);
                     }
 
 
@@ -62,7 +62,12 @@ public class MatchMaking extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                ComputerFighter.setFighter(Cloud.getRandom());
+                Fighter rand = Cloud.getRandom();
+                ComputerFighter.assignAtt(rand.getAttack());
+                ComputerFighter.assignDef(rand.getDefense());
+                ComputerFighter.assignSpec(rand.getSpecial());
+                ComputerFighter.assignTitle(rand.getTitle());
+                ComputerFighter.assignPassword(rand.getPassword());
                 startActivity(new Intent(MatchMaking.this, FightingActivity.class));
 
 

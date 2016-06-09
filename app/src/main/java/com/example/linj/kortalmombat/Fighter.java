@@ -34,7 +34,13 @@ public class Fighter {
         return attack;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public int getDefense() {
         return defense;

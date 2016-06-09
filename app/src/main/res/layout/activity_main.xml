@@ -42,9 +42,9 @@
         android:inputType="numberSigned"
         android:ems="10"
         android:id="@+id/editText2"
+        android:text="Enter Special Attack Stat"
         android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:text="Enter Special Attack Stat" />
+        android:layout_alignStart="@+id/editText" />
 
     <EditText
         android:layout_width="wrap_content"
