@@ -30,6 +30,16 @@ public class ComputerFighter {
         ComputerFighter.fighter = fighter;
     }
 
+    public static void attackPlusOne(){
+        fighter.gainAttackByOne();
+    }
+    public static void defensePlusOne(){
+        fighter.gainDefenseByOne();
+    }
+    public static void specialPlusOne(){
+        fighter.gainSpecialByOne();
+    }
+
 
 
 }

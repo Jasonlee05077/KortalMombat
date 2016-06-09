@@ -31,12 +31,9 @@ public class Cloud {
 
             public void onDataChange(DataSnapshot snapshot) {
 
-                Fighter pulledFighter = snapshot.child(title).child(password).getValue(Fighter.class);
-
-                int special = pulledFighter.getSpecial();
-                int attack = pulledFighter.getAttack();
-                int defense = pulledFighter.getDefense();
-
+                special = snapshot.child(title).child(password).child("special").getValue(Integer.TYPE);
+                attack = snapshot.child(title).child(password).child("attack").getValue(Integer.TYPE);
+                defense = snapshot.child(title).child(password).child("defense").getValue(Integer.TYPE);
 
             }
 
@@ -50,7 +47,7 @@ public class Cloud {
     }
     public static Fighter getRandom(){
         Random rand = new Random();
-        int random = rand.nextInt(FighterNamesPassword.namesAndPasswords.size()-1);
+        int random = rand.nextInt(FighterNamesPassword.namesAndPasswords.size());
         String randomNamePassword = FighterNamesPassword.namesAndPasswords.get(random);
         Fighter fighter = getFighter(randomNamePassword.substring(0, randomNamePassword.indexOf(" ")), randomNamePassword.substring(randomNamePassword.indexOf(" ")+1)
         );

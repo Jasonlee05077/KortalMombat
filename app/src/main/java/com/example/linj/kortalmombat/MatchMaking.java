@@ -27,13 +27,13 @@ public class MatchMaking extends AppCompatActivity {
                 for(int i = 0 ; i < totalStat ; i++){
                     int randomNumber = rand.nextInt(2);
                     if (randomNumber == 0){
-                        ComputerFighter.assignAtt(ComputerFighter.getFighter().getAttack()+1);
+                        ComputerFighter.attackPlusOne();
                     }
                     else if (randomNumber == 1){
-                        ComputerFighter.assignDef(ComputerFighter.getFighter().getSpecial()+1);
+                        ComputerFighter.defensePlusOne();
                     }
                     else if (randomNumber == 2){
-                        ComputerFighter.assignSpec(ComputerFighter.getFighter().getDefense()+1);
+                        ComputerFighter.specialPlusOne();
                     }
 
 
