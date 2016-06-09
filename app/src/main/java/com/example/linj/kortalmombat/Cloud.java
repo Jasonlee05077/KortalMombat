@@ -25,6 +25,8 @@ public class Cloud {
         fighterStorage.child("defense").setValue(fighter.getDefense());
 
 
+
+
     }
     public static void getYourStats(final String title, final String password){
 
@@ -45,8 +47,33 @@ public class Cloud {
         });
 
     }
-    public static void getRandom(){
+    public static void getTheirStats(final String title, final String password){
 
+        ref.addValueEventListener(new ValueEventListener() {
+
+
+            public void onDataChange(DataSnapshot snapshot) {
+
+                ComputerFighter.special = (snapshot.child(title).child(password).child("special").getValue(Integer.TYPE).intValue());
+                ComputerFighter.defense=(snapshot.child(title).child(password).child("defense").getValue(Integer.TYPE).intValue());
+                ComputerFighter.attack = (snapshot.child(title).child(password).child("attack").getValue(Integer.TYPE).intValue());
+                ComputerFighter.defensechance= (snapshot.child(title).child(password).child("block").getValue(Integer.TYPE).intValue());
+                ComputerFighter.attackchance = (snapshot.child(title).child(password).child("punch").getValue(Integer.TYPE).intValue());
+                ComputerFighter.specialchance = (snapshot.child(title).child(password).child("kick").getValue(Integer.TYPE).intValue());
+        }
+
+
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
 
     }
+    public static void uploadChances(int block, int punch , int kick, String title, String password){
+        Firebase fighterStorage = ref.child(title).child(password);
+        fighterStorage.child("block").setValue(block);
+        fighterStorage.child("punch").setValue(punch);
+        fighterStorage.child("kick").setValue(kick);
+    }
+
 }
