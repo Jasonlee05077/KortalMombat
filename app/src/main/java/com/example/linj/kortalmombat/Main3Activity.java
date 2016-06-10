@@ -13,7 +13,7 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        Button continueButton = (Button) findViewById(R.id.button);
+        Button continueButton = (Button) findViewById(R.id.button10);
         continueButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText specialText = ((EditText) findViewById(R.id.editText15));
