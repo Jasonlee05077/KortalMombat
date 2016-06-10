@@ -95,8 +95,7 @@ public class FightingActivity extends AppCompatActivity {
                         }
 
                     case MotionEvent.ACTION_DOWN:
-                        ImageView whiteStance = (ImageView) findViewById(R.id.imageView);
-                        whiteStance.setImageResource(R.mipmap.a_white_punch);
+                        ;
                         YourHP = ((TextView) findViewById(R.id.textView7));
                         CompHP = ((TextView) findViewById(R.id.textView10));
                         move = rand.nextInt(100);
